@@ -1,4 +1,25 @@
 /*
+    - 자바 설치
+    1. path: c:\jdk-17.0.2\bin => java/javac
+       classpath: 자바에서 지원하는 라이브러리를 사용
+                  .;c:\jdk-17.0.2\lib =>현재폴더
+    - 이클립스 설치
+    1. File => new => JavaProject
+    2. src 안에 자바 파일 생성
+    
+    public class ClassName{
+    프로그램의 시작
+              public static void main(String[] args)
+              {
+                 // 코딩 시작
+              }
+          }
+    
+    - Git
+     => team ==> shareProject
+     => team ==> commit
+     
+    - java 주의점
     1. 대문자 구분: 파일명은 대문자로 시작
     2. 들여쓰기 -> 가독성
     3. 명령문 종료시 ;(세미콜론)
