@@ -66,7 +66,7 @@
         6) 배포: AWS
         =======================
         차세대 개발용 공부 과정
-        spring-boot / JPA / MySQL / React-Query / Redux / Vue3 / NextJS / TypeScript / NodeJS
+        spring-boot / JPA / MySQL / React-Query / Redux / Vue3 / NextJS / TypeScript / NodeJS(React에서 만듦)
         교재(9권)
         JAVA / ORACLE / 알고리즘
         HTML/CSS/JavaScript(한 권) / JSP
