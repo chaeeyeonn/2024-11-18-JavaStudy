@@ -56,7 +56,8 @@ public class 제어문_조건문3 {
 	    System.out.println("수학 점수:"+math);
 	    System.out.println("총점:"+total);
 	    System.out.printf("평균:%.2f\n",avg);//%d: 정수, %f: 실수
-	    System.out.println("학점:"+score+""+opt);
+	    System.out.println("학점:"+score+""+opt);//""는 안 써도 된다 -> but 안 쓰면 char(score, opt)를 int로 인식해 숫자로 결과값이 나오는 상황 발생.
+	    //""넣어서 문자열로 인식하도록 만든 것
 	    
 	    
 	    
