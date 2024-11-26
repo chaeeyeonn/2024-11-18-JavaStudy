@@ -68,7 +68,7 @@ public class 반복문_6 {
 		int i=1;
 		int max=1;
 		int min=100;
-		while(i<=5)
+		while(i<=5)// 수정이 편리 => 유지보수가 편함
 		{
 			int a=(int)(Math.random()*100)+1;
 			System.out.print(a+" ");
