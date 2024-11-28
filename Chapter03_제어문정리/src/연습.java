@@ -92,7 +92,7 @@
 //		String str=scan.nextLine();
 //		int j=0;
 //		int a=0,e=0,k=0,o=0,u=0;
-//		while(j<=str.length())
+//		while(j<str.length())
 //		{
 //			char c=str.charAt(j);
 //			if(c=='a')
