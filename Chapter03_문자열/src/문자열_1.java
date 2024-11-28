@@ -173,8 +173,8 @@
  *     toLowerCase: 소문자 변환
  *     ----------------------------------------------------
  *     원형
- *     String to UpperCase()
- *     String to LowerCase()
+ *     String toUpperCase()
+ *     String toLowerCase()
  *     
  *     String msg="Java";
  *     String s=msg.toUpperCase()
@@ -236,6 +236,8 @@
  *     원형
  *     booles equals(String s)
  *     => 로그인 처리...
+ *     
+ * ***15) toString(): 객체의 주소 => 오버라이딩
  *         
  */
 
