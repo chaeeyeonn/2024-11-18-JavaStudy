@@ -110,7 +110,7 @@ import java.util.Arrays;
 //		for(int i=0;i<a.length;i++)
 //		{
 //			a[i]=c++;
-//			
+//			System.out.print(a[i]+" ");
 //		}
 //
 //	}
