@@ -104,7 +104,7 @@ import java.util.Arrays;
 //public class 연습 {
 //
 //	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 //		char[] a=new char[26];
 //		char c='A';
 //		for(int i=0;i<a.length;i++)
@@ -116,4 +116,47 @@ import java.util.Arrays;
 //	}
 //}
 
-//
+//10개의 정수를 입력받아서 짝수의 최대값,홀수의 최대값을 출력하는 프로그램을 작성하시오
+import java.util.Scanner;
+public class 연습 {
+
+	public static void main(String[] args) {
+//	Scanner scan=new Scanner(System.in);
+//	int[] num=new int[10];
+//	int max0=num[0];
+//	int max1=num[0];
+//	
+//	for(int i=0;i<num.length;i++)
+//	{
+//		System.out.println("정수 입력:");
+//		num[i]=scan.nextInt();
+//		if(num[i]%2==0)
+//		{
+//			if(max0<num[i])
+//			max0=num[i];
+//		}
+//		else
+//		{
+//			if(max1<num[i])
+//			max1=num[i];
+//		}
+//		
+//	}
+//	System.out.print(Arrays.toString(num));
+//	System.out.println();
+//	System.out.print(max0+" "+max1);
+//		
+		
+// 사용자에게 입력받은 양의 정수만큼 배열 크기를 할당하고 1부터 입력받은 값까지 배열에 초기화한 후 출력
+   Scanner scan=new Scanner(System.in);
+   System.out.println("정수 입력:");
+   int[] num=new int[scan.nextInt()];
+   int a=1;
+   for(int i=0;i<num.length;i++)
+   {
+	   num[i]=a;
+	   a++;
+   }
+   System.out.print(Arrays.toString(num));
+	}
+}
