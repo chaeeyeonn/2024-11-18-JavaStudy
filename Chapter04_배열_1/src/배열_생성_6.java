@@ -26,6 +26,7 @@ public class 배열_생성_6 {
 				}
 			}
 		}
+		System.out.println(Arrays.toString(rank));
 	}
 
 }
