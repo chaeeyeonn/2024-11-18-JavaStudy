@@ -53,7 +53,10 @@ for(int i=0;i<arr.length;i++)
 			}
 			System.out.println((i+1)+"round:"+Arrays.toString(arr));
 		}
-		
+		for(char i:arr)
+		{
+			System.out.print(i+" ");
+		}
 
 	}
 
