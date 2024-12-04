@@ -93,25 +93,25 @@ public class 연습 {
 //5. 1~100사이의 정수를 10개 저장하고  
 //	1) 정수형 변수 evenTotal 에 배열 내의 데이터 짝수 합 계산하여 저장	
 //  2) 정수형 변수 oddTotal 에 배열 내의 데이터 홀수 합 계산하여 저장
-//		int[] arr=new int[10];
-//		int evenTotal=0;
-//		int oddTotal=0;
-//		for(int i=0;i<arr.length;i++)
-//		{
-//			arr[i]=(int)(Math.random()*100)+1;
-//			System.out.print(arr[i]+" ");
-//			if(i%2==0)
-//			{
-//				evenTotal+=i;
-//			}
-//			else
-//			{
-//				oddTotal+=i;
-//			}
-//		}
-//		System.out.println();
-//		System.out.println("짝수 합:"+evenTotal);
-//		System.out.println("홀수 합:"+oddTotal);
+		int[] arr=new int[10];
+		int evenTotal=0;
+		int oddTotal=0;
+		for(int i:arr)
+		{
+			arr[i]=(int)(Math.random()*100)+1;
+			System.out.print(arr[i]+" ");
+			if(arr[i]%2==0)
+			{
+				evenTotal+=arr[i];
+			}
+			else
+			{
+				oddTotal+=arr[i];
+			}
+		}
+		System.out.println();
+		System.out.println("짝수 합:"+evenTotal);
+		System.out.println("홀수 합:"+oddTotal);
 
 
 //6. 0~9사이의 난수를 100개 발생해서 빈도를 구해서 출력하시오 
@@ -136,50 +136,50 @@ public class 연습 {
 		
 		
 //7. 임의의 문자 5개를 저장하고 정렬해서 출력하시오(108~110page) ==> 코테 거의 무조건 나옴
-		char[] arr=new char[5];
-		//초기값
-		for(int i=0;i<arr.length;i++)
-		{
-			arr[i]=(char)((Math.random()*26)+65);
-		}
-		System.out.println(Arrays.toString(arr));
-		//ASC정렬(오름차순) => 선택정렬
-		for(int i=0;i<arr.length-1;i++)
-		{
-			for(int j=i+1;j<arr.length;j++)
-			{
-				if(arr[i]>arr[j])
-				{
-					char temp=arr[i];
-					arr[i]=arr[j];
-					arr[j]=temp;
-				}
-			}
-		}
-		//Arrays.sort(arr) => 정렬 메소드
-		System.out.println("정렬 후:");
-		System.out.println(Arrays.toString(arr));
-
-		//DESC정렬(내림차순) => 버블정렬
-//		for(int i=arr.length-1;i>=0;i--)
+//		char[] arr=new char[5];
+//		//초기값
+//		for(int i=0;i<arr.length;i++)
 //		{
-//			System.out.print(arr[i]+" ");
+//			arr[i]=(char)((Math.random()*26)+65);
 //		}
-		for(int i=0;i<arr.length-1;i++)
-		{
-			for(int j=0;j<arr.length-1-i;j++)
-			{
-				if(arr[j]<arr[j+1])
-				{
-					char temp=arr[j];
-					arr[j]=arr[j+1];
-					arr[j+1]=temp;
-				}
-			}
-		}
-		System.out.println("정렬 후:");
-		System.out.println(Arrays.toString(arr));
-		// Arrays.sort(arr) => DESC가 없음
+//		System.out.println(Arrays.toString(arr));
+//		//ASC정렬(오름차순) => 선택정렬
+//		for(int i=0;i<arr.length-1;i++)
+//		{
+//			for(int j=i+1;j<arr.length;j++)
+//			{
+//				if(arr[i]>arr[j])
+//				{
+//					char temp=arr[i];
+//					arr[i]=arr[j];
+//					arr[j]=temp;
+//				}
+//			}
+//		}
+//		//Arrays.sort(arr) => 정렬 메소드
+//		System.out.println("정렬 후:");
+//		System.out.println(Arrays.toString(arr));
+//
+//		//DESC정렬(내림차순) => 버블정렬
+////		for(int i=arr.length-1;i>=0;i--)
+////		{
+////			System.out.print(arr[i]+" ");
+////		}
+//		for(int i=0;i<arr.length-1;i++)
+//		{
+//			for(int j=0;j<arr.length-1-i;j++)
+//			{
+//				if(arr[j]<arr[j+1])
+//				{
+//					char temp=arr[j];
+//					arr[j]=arr[j+1];
+//					arr[j+1]=temp;
+//				}
+//			}
+//		}
+//		System.out.println("정렬 후:");
+//		System.out.println(Arrays.toString(arr));
+//		// Arrays.sort(arr) => DESC가 없음
 
 	}
 
