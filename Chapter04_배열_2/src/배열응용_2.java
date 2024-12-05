@@ -72,7 +72,8 @@ public class 배열응용_2 {
 			System.out.printf("%2d\t",i);
 			//1일과 요일 맞춤
 			week++;// 요일 변경
-			if(week>6)//일요일이라면 {
+			if(week>6)//일요일이라면 
+				{
 				week=0;
 				System.out.println();//다음 줄로 출력
 				}
@@ -80,5 +81,6 @@ public class 배열응용_2 {
 		}
 
 	}
+}
 
 
