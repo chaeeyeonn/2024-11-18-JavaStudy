@@ -49,6 +49,7 @@
  *              
  *              
  *      종류                메모리 저장 시점          메모리 해제 시점         저장위치       사용위치     사용 방법
+ *      ----------------------------------------------------------------------------------------------------
  *      인스턴스 변수            new 이용              프로그램 종료           Heap       클래스 전체/   객체명.변수명  
  *                                                                                 다른 클래스
  *      정적 변수(공유변수)   컴파일 시 자동 메모리 할당    프로그램 종료          MethodArea   클래스 전체/  클래스명.변수명
@@ -65,10 +66,68 @@
  *      }
  *      A a=new A(); => 메모리 생성
  */
-public class 클래스_3 {
 
+import java.text.DecimalFormat;
+class Recipe2
+{
+	String poster;
+	String title;
+	String chef;
+	String chef_poster;// => null
+	int star;
+	int hit;// => 0
+}
+public class 클래스_3 {
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//1. recipe 저장
+		//2. 데이터를 저장할 메모리 공간(메모리 할당)
+		Recipe2 recipe1=new Recipe2();//24byte메모리 생성
+		// => 기본형, 클래스형: 4byte
+		// 데이터 초기화
+		recipe1.poster="https://recipe1.ezmember.co.kr/cache/recipe/2024/08/08/fa7f51b62545d1c53c2e70d9006e8c5a1_m.jpg";
+		recipe1.title="감자꽈리고추조림 밥통 거덜내는 무시무시한 저녁반찬";
+		recipe1.chef="아임레시피";
+		recipe1.chef_poster="https://recipe1.ezmember.co.kr/cache/rpf/2023/11/02/3c59439108b7310153bca4a5f170fb0d1.jpg";
+		recipe1.hit=4510;
+		recipe1.star=5;
+		//변수값 지정
+		//저장 데이터 출력 => 2중 메모리 형태
+		System.out.println("레시피 포스터:"+recipe1.poster);
+		System.out.println("레시피 제목:"+recipe1.title);
+		System.out.println("쉐프명:"+recipe1.chef);
+		System.out.println("쉐프 포스터:"+recipe1.chef_poster);
+		DecimalFormat df=new DecimalFormat("###,###");
+		
+		System.out.println("조회수:"+recipe1.hit);
+		for(int i=1;i<=recipe1.star;i++)
+		{
+			System.out.print("★");
+		}
+		System.out.println();
+		System.out.println();
+		//recipe2 만들기
+		Recipe2 recipe2=new Recipe2();
+		recipe2.poster="https://recipe1.ezmember.co.kr/cache/recipe/2020/05/18/2cad62498784efd2b97c0f80abebfcff1_m.jpg";
+		recipe2.title="#최애반찬#소세지강정";
+		recipe2.chef="심킹카";
+		recipe2.chef_poster="https://recipe1.ezmember.co.kr/cache/rpf/2019/06/20/bcec53bab4eb42c9489afd12d640dce31.png";
+		recipe2.hit=140000;
+		recipe2.star=5;
+		
+		System.out.println("레시피 포스터:"+recipe2.poster);
+		System.out.println("레시피 제목:"+recipe2.title);
+		System.out.println("쉐프명:"+recipe2.chef);
+		System.out.println("쉐프 포스터:"+recipe2.chef_poster);
+		DecimalFormat df1=new DecimalFormat("###,###");
+		
+		System.out.println("조회수:"+recipe2.hit);
+		for(int i=1;i<=recipe1.star;i++)
+		{
+			System.out.print("★");
+		}
+		
 
 	}
 
