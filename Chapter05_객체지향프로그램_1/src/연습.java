@@ -26,7 +26,7 @@ class Menu
 class MenuInfo
 {
 	String poster;
-	String[] posters=;
+	String[] posters;
 	String title;
 	String kindOf;
 	String number;
@@ -102,8 +102,8 @@ class Store
 	String title;
 	String info;
 	int per;
-	String price;
-	String sale;
+	int price;
+	int sale;
 	String star;
 	String baesong;
 	int point;
