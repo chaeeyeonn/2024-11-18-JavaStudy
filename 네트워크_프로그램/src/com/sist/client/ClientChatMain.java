@@ -77,6 +77,7 @@ public class ClientChatMain extends JFrame implements ActionListener,Runnable{
 				// 서버 연결
 //				s=new Socket("localhost",3050);
 				s=new Socket("192.168.10.107",3050);
+				//192.168.10.107 : 조별 서버
 				// 송수신
 				out=s.getOutputStream();
 				in=new BufferedReader(new InputStreamReader(s.getInputStream()));
