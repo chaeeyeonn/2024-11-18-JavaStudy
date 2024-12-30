@@ -11,6 +11,8 @@ public class Server implements Runnable{
 	private ServerSocket ss;
 	private final int PORT=3050;//조별 port
 	private Vector<Client> waitVc=new Vector<Client>();
+	// ArrayList 단점: 순서가 틀리는 경우도 있다
+	// => 정렬 / Order By / index
 	//초기화
 	public Server()
 	{
