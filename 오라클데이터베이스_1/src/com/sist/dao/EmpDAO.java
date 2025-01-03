@@ -163,7 +163,7 @@ public class EmpDAO {
 			getConnection();
 			//SQL문장 제작
 			String sql="SELECT * FROM emp WHERE empno="+empno;
-			ps.getConnection().prepareStatement(sql);
+			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();//첫 번째 위치값을 읽어와라
 			// 컬럼 순서 맞추기

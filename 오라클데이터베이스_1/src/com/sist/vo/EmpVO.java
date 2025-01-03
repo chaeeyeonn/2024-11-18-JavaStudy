@@ -1,6 +1,7 @@
 package com.sist.vo;
 import java.util.*;
 
+
 import lombok.Data;
 /*
  *   오라클 데이터를 모아서 윈도우, 브라우저에 전송할 목적
