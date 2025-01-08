@@ -128,5 +128,50 @@ public class EmpDAO {
 		return list;
 		
 	}
+	public EmpVO empFindData(int empno)
+	{
+		EmpVO vo=new EmpVO();
+		try
+		{
+			//1. 연결
+			getConnection();
+			//2. 오라클로 SQL문장 전송
+			String sql="SELECT DISTINCT empno,ename,job,hiredate,TO_CHAR(sal,'$999,999'),dname,loc,grade FROM emp,dept,salgrade "
+					   +"WHERE emp.deptno=dept.deptno AND sal BETWEEN losal AND hisal AND empno="+empno;
+			//2-1. 전송
+			ps=conn.prepareStatement(sql);
+			//3. SQL 실행 후 결과값을 메모리에 저장
+			ResultSet rs=ps.executeQuery();
+			//4. 커서 위치 변경 => 첫 번째 출력 위치로
+			/*
+			 * 현재 값 => 순서대로 1번부터 시작
+			 * empno,ename,job,hiredate,sal,dname,loc,grade
+			 * int  String String Date  int  String String int
+			 * => getInt() / getString() / getDate()
+			 */
+			rs.next();
+			
+				vo.setEmpno(rs.getInt(1));
+				vo.setEname(rs.getString(2));
+				vo.setJob(rs.getString(3));
+				vo.setHiredate(rs.getDate(4));
+				//vo.setSal(rs.getInt(5));
+				vo.setStrSal(rs.getString(5));
+				//dvo
+				vo.getDvo().setDname(rs.getString(6));
+				vo.getDvo().setLoc(rs.getString(7));
+				//svo
+				vo.getSvo().setGrade(rs.getInt(8));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
 
 }
