@@ -38,8 +38,8 @@ public class UserMain extends JFrame implements MouseListener,ActionListener{
     	
     	setJMenuBar(bar);
     	
-    	add("EFP",efp);
     	add("EP",ep);
+    	add("EFP",efp);
     	
     	empDataPrint();
     	
