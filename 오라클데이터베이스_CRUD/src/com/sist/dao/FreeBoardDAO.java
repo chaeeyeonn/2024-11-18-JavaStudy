@@ -83,6 +83,7 @@ public class FreeBoardDAO {
 		try {
 			getConnection();
 			String sql="SELECT CEIL(COUNT(*)/10.0) FROM freeboard";
+			// 총페이지 나누기
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -99,6 +100,7 @@ public class FreeBoardDAO {
 	public FreeBoardVO boardDetailData(int no) {
 		FreeBoardVO vo=new FreeBoardVO();
 		try {
+			// 한 개의 기능 수행시 sql문장 여러 갤,ㄹ 한 번에 처리 가능
 			getConnection();
 			String sql="UPDATE freeboard SET " //조회수 증가
 					+ "hit=hit+1 WHERE no="+no;
