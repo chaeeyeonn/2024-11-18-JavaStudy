@@ -137,20 +137,23 @@ public class ReplyBoardDAO {
 		}
 	}
     // 3. 상세보기 => WHERE
-	public ReplyBoardVO boardDetailData(int no)
+	public ReplyBoardVO boardDetailData(int type,int no)
 	{
 		ReplyBoardVO vo=new ReplyBoardVO();
 		try
 		{
 			getConnection();
 			//sql 1. 조회수 증가
-			String sql="UPDATE replyBoard SET "
-					+ "hit=hit+1 "
-					+ "WHERE no="+no;
-			ps=conn.prepareStatement(sql);
-			ps.executeUpdate();
+			if(type==1)
+			{
+				String sql="UPDATE replyBoard SET "
+						+ "hit=hit+1 "
+						+ "WHERE no="+no;
+				ps=conn.prepareStatement(sql);
+				ps.executeUpdate();
+			}
 			//sql 2. 상세보기 내용 읽기
-			sql="SELECT no,name,subject,content,"
+			String sql="SELECT no,name,subject,content,"
 					+ "TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit "
 					+ "FROM replyBoard "
 					+ "WHERE no="+no;
@@ -210,11 +213,67 @@ public class ReplyBoardDAO {
 		/*
 		 *  메소드: 사용자 요청 처리
 		 *  1) 사용자 요청값 받기
+		 *   => 매개변수
 		 *  2) 요청 처리 후 결과값
+		 *   => 경우의 수
+		 *   1. 목록: List<~VO>
+		 *   2. 상세보기: ~VO
+		 *   3. 비밀번호 맞다 / 아니다
+		 *            ------------boolean
+		 *   4. 경우의 수가 3개 이상
+		 *      String / int
+		 *      ------알아볼 수 있게 처리
+		 *      |로그인 처리 => NOID / NOPWD / OK
+		 *      -------------------------------자바 => 메소드 제작 => 데이터 확인(VO)
+		 *      
+		 *  1. 형식 => String
+		 *    - INSERT
+		 *     => DEFAULT가 많은 경우
+		 *       INSERT INTO table_name(컬럼,컬럼,...)
+		 *       VALUES(값,...)
+		 *     => DEFAULT가 없는 경우
+		 *       INSERT INTO table_name VALUES(값,...)
+		 *      => 날짜, 문자 => ''
+		 *    - UPDATE
+		 *      UPDATE table_name SET
+		 *      컬럼=값,컬럼=값[where 조건]
+		 *    - DELETE
+		 *      DELETE FROM fable_name
+		 *      table_name
+		 *      -------------------------------데이터 변경 
 		 */
 		try
 		{
 			getConnection();
+			// 비밀번호
+			String sql="SELECT pwd FROM replyBoard "
+					 +"WHERE no="+vo.getNo();
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			String db_pwd=rs.getString(1);
+			rs.close();
+			
+			// 오라클          사용자
+			if(db_pwd.equals(vo.getPwd()))
+			{
+				bCheck=true;
+				sql="UPDATE replyboard SET "
+				   +"name=?,subject=?,content=? "
+				   +"WHERE no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getName());
+				ps.setString(2, vo.getSubject());
+				ps.setString(3, vo.getContent());
+				ps.setInt(4, vo.getNo());
+				// 수정 명령
+				ps.executeUpdate();
+				// INSERT / UPDATE / DELETE가 여러 개인 경우(SELECT 제외) => 트랜잭션
+			}
+			else
+			{
+				bCheck=false;
+			}
 		}catch(Exception ex)
 		{
 			ex.printStackTrace();

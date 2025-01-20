@@ -183,9 +183,9 @@ public class BoardList extends JPanel implements ActionListener,MouseListener{
 				// 클릭 위치 확인 => 게시물 번호 읽기
 				int row=table.getSelectedRow();
 				String no=model.getValueAt(row, 0).toString();
-				ReplyBoardVO vo=dao.boardDetailData(Integer.parseInt(no));
+				
 				cp.card.show(cp, "BDETAIL");
-				cp.bDetail.print(vo);
+				cp.bDetail.print(1,Integer.parseInt(no));// 조회수 증가 o => type1
 			}
 		}
 	}

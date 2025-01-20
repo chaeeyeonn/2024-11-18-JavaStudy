@@ -18,6 +18,7 @@ public class ControlPanel extends JPanel{
 	BoardInsert bInsert;
 	BoardDetail bDetail;
 	BoardUpdate bUpdate;
+	
 CardLayout card=new CardLayout();
 	public ControlPanel()
 	{
@@ -39,6 +40,8 @@ CardLayout card=new CardLayout();
 		add("BINSERT",bInsert);
 		bDetail=new BoardDetail(this);
 		add("BDETAIL",bDetail);
+		bUpdate=new BoardUpdate(this);
+		add("BUPDATE",bUpdate);
 	}
 	
 }

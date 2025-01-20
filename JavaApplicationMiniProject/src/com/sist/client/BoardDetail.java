@@ -5,6 +5,7 @@ import java.awt.Font;
 // detail.jsp
 import javax.swing.*;
 
+import com.sist.dao.ReplyBoardDAO;
 import com.sist.vo.ReplyBoardVO;
 import java.awt.event.*;
 public class BoardDetail extends JPanel
@@ -87,8 +88,11 @@ implements ActionListener
     	 b3.addActionListener(this);//목록
     	 b4.addActionListener(this);//답변 
      }
-     public void print(ReplyBoardVO vo)
+     public void print(int type,int n)
      {
+    	 //데이터베이스 연동
+    	 ReplyBoardDAO dao=ReplyBoardDAO.newInstance();
+    	 ReplyBoardVO vo=dao.boardDetailData(type,n);
     	 name.setText(vo.getName());
     	 no.setText(String.valueOf(vo.getNo()));
     	 day.setText(vo.getDbday());
@@ -109,7 +113,12 @@ implements ActionListener
 		}
 		else if(e.getSource()==b1)// 수정
 		{
-			
+			cp.bUpdate.pwdPf.setText("");
+			String strNo=no.getText();
+			ReplyBoardDAO dao=ReplyBoardDAO.newInstance();
+			ReplyBoardVO vo=dao.boardUpdateData(Integer.parseInt(strNo));
+			cp.card.show(cp,"BUPDATE");
+			cp.bUpdate.print(vo);
 		}
 		else if(e.getSource()==b2)// 삭제
 		{
