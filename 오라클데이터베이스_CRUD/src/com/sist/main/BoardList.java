@@ -61,7 +61,7 @@ public class BoardList extends JPanel{
     	table.getTableHeader().setReorderingAllowed(false);
     	table.setShowVerticalLines(false);
     	table.setRowHeight(30);
-    	table.getTableHeader().setBackground(Color.pink);
+    	table.getTableHeader().setBackground(Color.black);
     	
     	// 배치 
     	setLayout(null);

@@ -24,12 +24,13 @@ implements MouseListener,ActionListener
 	int totalpage=0;
 	
 	
-	JTable table;
-	DefaultTableModel model;
+	JTable table,table1;
+	DefaultTableModel model,model1;
 	TableColumn column;
 	// 데이터베이스 연동 => FoodDAO 
 	FoodDAO dao=FoodDAO.newInstance();
 	JLabel titleLa=new JLabel("인기 맛집 Top10",JLabel.CENTER);
+	JLabel titleLa1=new JLabel("현재 접속자",JLabel.CENTER);
     public HomePanel(ControlPanel cp)
     {
     	// JPanel => FlowLayout - - - 
@@ -67,13 +68,47 @@ implements MouseListener,ActionListener
 			}
     		
     	};
+    	String[] col1={"아이디","이름","성별"};
+    	Object[][] row1=new Object[0][3];
+    	model1=new DefaultTableModel(row1,col1)
+    	{
+
+			@Override
+			public boolean isCellEditable(int row1, int column1) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public Class<?> getColumnClass(int columnIndex) {
+				// TODO Auto-generated method stub
+				return getValueAt(0, columnIndex).getClass();
+			}
+    		
+    	};
     	table=new JTable(model);
     	table.getTableHeader().setReorderingAllowed(false);
     	table.setRowHeight(35);
     	JScrollPane js=new JScrollPane(table);
+    	
     	for(int i=0;i<col.length;i++)
     	{
     		column=table.getColumnModel().getColumn(i);
+    		if(i==0)
+    			column.setPreferredWidth(100);
+    		else if(i==1)
+    			column.setPreferredWidth(150);
+    		else if(i==2)
+    			column.setPreferredWidth(80);
+    	}
+    	table1=new JTable(model1);
+    	table1.getTableHeader().setReorderingAllowed(false);
+    	table1.setRowHeight(35);
+    	JScrollPane js1=new JScrollPane(table1);
+    	
+    	for(int i=0;i<col.length;i++)
+    	{
+    		column=table1.getColumnModel().getColumn(i);
     		if(i==0)
     			column.setPreferredWidth(100);
     		else if(i==1)
@@ -85,8 +120,14 @@ implements MouseListener,ActionListener
     	titleLa.setBounds(580, 15, 230, 45);
     	titleLa.setFont(new Font("맑은 고딕",Font.BOLD,25));
     	add(titleLa);
-    	js.setBounds(580,70, 230, 450);
+    	js.setBounds(580,70, 230, 180);
     	add(js);
+    	titleLa1.setBounds(580, 260, 230, 45);
+    	titleLa1.setFont(new Font("맑은 고딕",Font.BOLD,25));
+    	add(titleLa1);
+    	js1.setBounds(580,315, 230, 180);
+    	add(js1);
+    	
     	b1.addActionListener(this);//이전
     	b2.addActionListener(this);//다음 
     	print();

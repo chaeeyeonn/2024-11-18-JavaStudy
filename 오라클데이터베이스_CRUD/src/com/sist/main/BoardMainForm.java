@@ -107,6 +107,10 @@ implements ActionListener,MouseListener
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		try
+    	{
+    		UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");// 추가할 디자인 플랫폼 이름 넣기 => plaf.플랫폼 이름 앞.플랫폼 이름
+    	}catch(Exception ex) {}//UI 디자인 적용 // 예외처리한 것
         new BoardMainForm();
 	}
 	@Override
